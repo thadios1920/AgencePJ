@@ -1,0 +1,17 @@
+<div class="bg">
+    <div>
+        <form class="container">
+            <select class="form-select"id="opt" aria-label="Default select example" class="col-md-">
+                <option selected>ou allez vous</option>
+                <option *ngFor="let t of lesvilles;index as i" value="i" >{{t}}</option>
+              </select>
+             <label for="arrive">Arrivee</label> <input type="date" name="Arrive" id="arrive">
+             <label for="depart">Depart</label><input type="date" name="départ" id="depart">
+             <label for="nbChambre">nombre de chambres</label><input type="number" value="1" id="nbChambre">
+             <label for="nbChambre">nombre de personnes</label><input type="number" value="1" id="nbPersonne">
+             <button (click)="onAfficheHotels()">Rechercher</button>
+        </form>
+    
+    </div>
+
+</div> 
