@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListhotelComponent } from './listhotel.component';
+import { PageAdminComponent } from './page-admin.component';
 
-describe('ListhotelComponent', () => {
-  let component: ListhotelComponent;
-  let fixture: ComponentFixture<ListhotelComponent>;
+describe('PageAdminComponent', () => {
+  let component: PageAdminComponent;
+  let fixture: ComponentFixture<PageAdminComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListhotelComponent ]
+      declarations: [ PageAdminComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListhotelComponent);
+    fixture = TestBed.createComponent(PageAdminComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

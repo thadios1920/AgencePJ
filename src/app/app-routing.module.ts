@@ -4,6 +4,8 @@ import { CroisiereComponent } from './croisiere/croisiere.component';
 import { GestionAgenceComponent } from './gestion-agence/gestion-agence.component';
 import { HoteltnComponent } from './hoteltn/hoteltn.component';
 import { OmraComponent } from './omra/omra.component';
+import { PageAdminComponent } from './page-admin/page-admin.component';
+import { RegisterComponent } from './register/register.component';
 import { VoyageOrganiseComponent } from './voyage-organise/voyage-organise.component';
 
 const routes: Routes = [
@@ -11,7 +13,9 @@ const routes: Routes = [
   {path:'voyageorganise' , component:VoyageOrganiseComponent},
   {path:'croisiere' , component:CroisiereComponent},
   {path:'omra' , component:OmraComponent},
-  {path:'gestion',component:GestionAgenceComponent}
+  {path:'gestion',component:GestionAgenceComponent},
+  {path:'Admin' , component:PageAdminComponent},
+  {path:'register' , component:RegisterComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
