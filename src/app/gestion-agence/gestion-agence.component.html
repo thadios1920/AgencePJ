@@ -1,0 +1,22 @@
+<div>
+    <form>
+        <label for="">Nom Hotel</label>
+    <input type="text" placeholder="Nom de l'hotel" ><br>
+    <label for="">Emplassement de l'image</label>
+    <input type="text" ><br>
+    <label for="">La ville</label>
+    <select name="" id="">
+        <option *ngFor="let t of lesvilles;index as i" >{{t}}</option>
+    </select><br>
+    <label for="">Presisez la categorie</label>
+    <input type="text"><br>
+    <label for="">Note</label>
+    <input type="number"><br>
+    <button (click)="onAjoutHotel()" >Ajouter hotel</button>
+
+    </form>
+</div>
+<button (click)="onChangeHotel()" >Modifier hotel existant</button>
+<div>
+
+</div>

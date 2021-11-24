@@ -9,6 +9,8 @@ export class RessourceService {
   getvilles(){
     return this.listeville;
   }
+  leshotelsSearched:HotelClass[]=[];
+
   listHotel:HotelClass [] = [ 
     new HotelClass('radisson blue','',this.listeville[2],"luxe","tres bien",9 ), 
     new HotelClass('Africa jade','', this.listeville[1],"luxe","tres bien",8.7 ), 
@@ -16,9 +18,20 @@ export class RessourceService {
     new HotelClass('Beach Club','',this.listeville[1],"bas de gamme ","pas mal",5.3 )
     
    ]
+   public addHotel(hotel: HotelClass){
+    let h1 = Object.assign({},hotel);
+    this.leshotelsSearched.push(h1);
+  };
    
    gethotels(){
      return this.listHotel;
    }
+   gethotelsSearched(){
+    return this.leshotelsSearched;
+  }
+  initializeHotelsSearched(){
+    return this.leshotelsSearched=[];
+  }
+
   constructor() { }
 }

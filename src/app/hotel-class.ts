@@ -1,4 +1,5 @@
 export class HotelClass {
+    
     constructor(
         public name? :string,
         public image?:string,

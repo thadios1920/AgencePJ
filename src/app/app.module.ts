@@ -8,6 +8,8 @@ import { HoteltnComponent } from './hoteltn/hoteltn.component';
 import { VoyageOrganiseComponent } from './voyage-organise/voyage-organise.component';
 import { CroisiereComponent } from './croisiere/croisiere.component';
 import { OmraComponent } from './omra/omra.component';
+import { ListhotelComponent } from './listhotel/listhotel.component';
+import { GestionAgenceComponent } from './gestion-agence/gestion-agence.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,14 @@ import { OmraComponent } from './omra/omra.component';
     HoteltnComponent,
     VoyageOrganiseComponent,
     CroisiereComponent,
-    OmraComponent
+    OmraComponent,
+    ListhotelComponent,
+    GestionAgenceComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
