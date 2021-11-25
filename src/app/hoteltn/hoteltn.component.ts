@@ -16,10 +16,11 @@ export class HoteltnComponent implements OnInit {
   list:number=0;
   hotel:HotelClass = new HotelClass();
   villeSelected:String="";
- reloadPage() {
-      window.location.reload();
-  
-}
+  j:number=-1;
+  counter(): any[] {
+    this.j=this.j+1;
+    return new Array(this.leshotelsSearched[this.j].etoile);
+  }
   onSubmit(chaine:string) { 
     this.leshotelsSearched=this.ressourcesevice.initializeHotelsSearched();
      
@@ -29,6 +30,7 @@ export class HoteltnComponent implements OnInit {
           
         }
         this.leshotelsSearched=this.ressourcesevice.gethotelsSearched();  
+        
           
       }
      

@@ -7,7 +7,7 @@ export class HotelClass {
         public categorie?:string,
         public avis?:string,
         public rate?:number, 
-        
+        public etoile?:number,
     ){
 
     }
