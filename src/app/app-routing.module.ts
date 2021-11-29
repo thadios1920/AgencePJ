@@ -5,7 +5,6 @@ import { GestionAgenceComponent } from './gestion-agence/gestion-agence.componen
 import { HoteltnComponent } from './hoteltn/hoteltn.component';
 import { OmraComponent } from './omra/omra.component';
 import { PageAdminComponent } from './page-admin/page-admin.component';
-import { RegisterComponent } from './register/register.component';
 import { VoyageOrganiseComponent } from './voyage-organise/voyage-organise.component';
 
 const routes: Routes = [
@@ -14,8 +13,7 @@ const routes: Routes = [
   {path:'croisiere' , component:CroisiereComponent},
   {path:'omra' , component:OmraComponent},
   {path:'gestion',component:GestionAgenceComponent},
-  {path:'Admin' , component:PageAdminComponent},
-  {path:'register' , component:RegisterComponent}
+  {path:'Admin' , component:PageAdminComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

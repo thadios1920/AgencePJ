@@ -1,25 +1,28 @@
   <div class="body" >
     <div class="box" >
         <h1>Connection</h1>
-        <form action="">
-            <div class="formul" >
-                <input type="text" required>
+        <form  [formGroup]="prodForm" (ngSubmit)="onSubmit()" >
+            <div class="formul"  >
+                <input type="text" name="mail" [(ngModel)]="mail"  id="n" formControlName="mail"  required />
+                <!-- <div *ngIf="n.invalid &&  n.touched" class="alert alert-danger">
+                    Entrer un email valid
+            </div> -->
                 <label for="Email">
-                    <span style="transition—delay: fts">E</span>
-                    <span style="transition—delay: 50ms">m</span>
-                    <span style="transition—delay: 100ms">a</span>
-                    <span style="transition—delay: 15ems">i</span>
-                    <span style="transition—delay: 200ms">l</span> 
+                    Email
                 </label>
             </div>
             <div class="formul" >
-                <input type="password" required>
+                <input type="password" name="pass" [(ngModel)]="pass" formControlName="pass"  required/>
+                <!-- <div *ngIf="p.invalid &&  p.touched" class="alert alert-danger">
+                    Veuillez entrer un mot de passe
+            </div> -->
                 <label for=""> Mot de passe</label>
             </div>
-            <button class="btn">
-                Soumettre
+            <button class="btn" value="Soumetre"  type="submit">
+                Soumetre
             </button>
-            <p class="texte" >Vous n'avez pas un compte? <a routerLink="/register" routerLinkActive="active">Inscrivez vous</a></p>
+            
         </form>
+         
     </div>
 </div>

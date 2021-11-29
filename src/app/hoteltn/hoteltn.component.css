@@ -1,5 +1,6 @@
 .bg{
-    background-image:  url("../../assets/sidibou.jpg");
+    /* background-image:  url("../../assets/sidibou.jpg"); */
+    background-color: white;
     height: 1000px;
     width: 1000px;
 }
@@ -10,5 +11,8 @@ img{
     float: left;
     height: 200px;
     width: 300px;
+}
+.c2{
+    position: relative;
 }
 

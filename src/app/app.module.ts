@@ -10,7 +10,9 @@ import { CroisiereComponent } from './croisiere/croisiere.component';
 import { OmraComponent } from './omra/omra.component';
 import { GestionAgenceComponent } from './gestion-agence/gestion-agence.component';
 import { PageAdminComponent } from './page-admin/page-admin.component';
-import { RegisterComponent } from './register/register.component';
+import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from "@angular/common/http";
+
 
 @NgModule({
   declarations: [
@@ -21,13 +23,14 @@ import { RegisterComponent } from './register/register.component';
     CroisiereComponent,
     OmraComponent,
     GestionAgenceComponent,
-    PageAdminComponent,
-    RegisterComponent
+    PageAdminComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
-    
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

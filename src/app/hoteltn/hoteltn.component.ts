@@ -11,7 +11,8 @@ import { RessourceService } from '../ressource.service';
 export class HoteltnComponent implements OnInit {
   leshotels:HotelClass[]=[];
   leshotelsSearched:HotelClass[]=[];
-
+  year:Date = new Date();
+  d1:Date = new Date();
   lesvilles:string[]=[];
   list:number=0;
   hotel:HotelClass = new HotelClass();
@@ -30,15 +31,12 @@ export class HoteltnComponent implements OnInit {
           
         }
         this.leshotelsSearched=this.ressourcesevice.gethotelsSearched();  
-        
-          
-      }
-     
-      
-   
-
-
+      }console.log(this.d1);
   } 
+  
+  onModifie(){
+    // console.log(this.year.getTime()+"/"+this.year.getMonth()+"/"+this.year.getFullYear());
+  }
   constructor(private ressourcesevice : RessourceService) { }
 
   ngOnInit(): void {
