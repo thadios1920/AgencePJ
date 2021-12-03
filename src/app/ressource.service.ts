@@ -31,12 +31,17 @@ export class RessourceService {
    gethotels(){
      return this.listHotel;
    }
+
+   // public addHotelToRessource(hotel:HotelClass){
+  //   if(this.listHotel.findIndex(x=>x.name==hotel.name)==-1){
+  //     console.log('do not enter');
+  //     this.listHotel.push(hotel);}
+  // }
+  //******************************** */
    
-public addHotelToRessource(hotel:HotelClass){
-  if(this.listHotel.findIndex(x=>x.name==hotel.name)==-1){
-    console.log('do not enter');
-    this.listHotel.push(hotel);}
-}
+  addHotelToRessource(hotel:HotelClass):Observable<HotelClass>{
+    return this.http.post<HotelClass>(URL, hotel);
+  }
 
   
    gethotelsSearched(){

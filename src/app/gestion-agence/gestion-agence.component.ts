@@ -73,7 +73,7 @@ export class GestionAgenceComponent implements OnInit {
     console.log(this.hotel);
 
     this.ressourcesevice.addHotelToRessource(this.hotel) 
-    // .subscribe (data => console.log(data));
+    .subscribe (data => console.log(data))
     ;
     this.ngOnInit();
 
