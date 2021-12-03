@@ -13,7 +13,8 @@ const routes: Routes = [
   {path:'croisiere' , component:CroisiereComponent},
   {path:'omra' , component:OmraComponent},
   {path:'gestion',component:GestionAgenceComponent},
-  {path:'Admin' , component:PageAdminComponent}
+  {path:'Admin' , component:PageAdminComponent},
+  {path:'', redirectTo:'hotel', pathMatch:'full'}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

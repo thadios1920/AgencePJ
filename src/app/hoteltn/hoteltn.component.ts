@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HotelClass } from '../hotel-class';
 import { RessourceService } from '../ressource.service';
+import { PageAdminComponent } from '../page-admin/page-admin.component';
 
 @Component({
   selector: 'app-hoteltn',
@@ -17,7 +18,11 @@ export class HoteltnComponent implements OnInit {
   list:number=0;
   hotel:HotelClass = new HotelClass();
   villeSelected:String="";
+  
   j:number=-1;
+
+  @Input() etat:boolean=true;
+
   counter(): any[] {
     this.j=this.j+1;
     return new Array(this.leshotelsSearched[this.j].etoile);
@@ -32,6 +37,9 @@ export class HoteltnComponent implements OnInit {
         }
         this.leshotelsSearched=this.ressourcesevice.gethotelsSearched();  
       }console.log(this.d1);
+      
+      console.log(this.etat);
+      
   } 
   
   onModifie(){

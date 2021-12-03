@@ -3,7 +3,8 @@ import { HotelClass } from './hotel-class';
 import { Login } from './login';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-const URL = 'http://localhost:3000/Login' ;
+const URL = 'http://localhost:3000/listHotel';
+const URL1 = 'http://localhost:3000/Login' ;
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,13 @@ export class RessourceService {
    gethotels(){
      return this.listHotel;
    }
+   
+public addHotelToRessource(hotel:HotelClass){
+  if(this.listHotel.findIndex(x=>x.name==hotel.name)==-1){
+    console.log('do not enter');
+    this.listHotel.push(hotel);}
+}
+
   
    gethotelsSearched(){
     return this.leshotelsSearched;
@@ -38,11 +46,29 @@ export class RessourceService {
     return this.leshotelsSearched=[];
   }
   getLogin(){
-    return this.http.get<Login[]>(URL);
+    return this.http.get<Login[]>(URL1);
   }
   addLogin(l:Login):Observable<Login>{
-    return this.http.post<Login>(URL, l);
+    return this.http.post<Login>(URL1, l);
   }
+  setHotel(hotel:HotelClass){
+    let index= this.listHotel.findIndex(x=>x.name==hotel.name);
+    this.listHotel[index]=hotel;
+    return this.listHotel[index];
+  }
+
+  getHotels():Observable<HotelClass[]>{
+    
+    return this.http.get<HotelClass[]>(URL);
+    }
+    modifyHotel(hotel:HotelClass,id:number|undefined):Observable<HotelClass>{
+      return this.http.put<HotelClass>(URL+"/"+id,hotel);
+    }
+
+
+    delHotel(id:number|undefined):Observable<HotelClass>{
+      return this.http.delete<HotelClass>(URL+"/"+id);
+    }
    
   constructor(private http:HttpClient) { }
 

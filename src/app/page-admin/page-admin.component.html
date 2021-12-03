@@ -3,19 +3,19 @@
         <h1>Connection</h1>
         <form  [formGroup]="prodForm" (ngSubmit)="onSubmit()" >
             <div class="formul"  >
-                <input type="text" name="mail" [(ngModel)]="mail"  id="n" formControlName="mail"  required />
-                <!-- <div *ngIf="n.invalid &&  n.touched" class="alert alert-danger">
+                <input type="text" name="mail"  [(ngModel)]="mail"  id="n" formControlName="mail"  required />
+                <div *ngIf=" refmail && refmail.invalid &&  refmail.touched && refmail.dirty" class="alert alert-danger">
                     Entrer un email valid
-            </div> -->
+            </div>
                 <label for="Email">
                     Email
                 </label>
             </div>
             <div class="formul" >
-                <input type="password" name="pass" [(ngModel)]="pass" formControlName="pass"  required/>
-                <!-- <div *ngIf="p.invalid &&  p.touched" class="alert alert-danger">
+                <input type="password" name="pass"  [(ngModel)]="pass" formControlName="pass"  required/>
+                <div *ngIf=" refpass && refpass.invalid &&  refpass.touched && refpass.dirty " class="alert alert-danger">
                     Veuillez entrer un mot de passe
-            </div> -->
+            </div>
                 <label for=""> Mot de passe</label>
             </div>
             <button class="btn" value="Soumetre"  type="submit">
