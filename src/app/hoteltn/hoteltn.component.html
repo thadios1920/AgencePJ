@@ -1,26 +1,42 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <div class=" bg container">
     <div>
-        <form  class=" container">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)" class=" container">
             <div class="row mb-3 " >
-            <select #textbox class="form-select form-select-sm" id="opt" aria-label="Default select example" class="col-md-">
+            <select #textbox ngModel class="form-select form-select-sm" name="v" aria-label="Default select example" class="col-md-">
                 <option selected>ou allez vous</option>
                 <option *ngFor="let t of lesvilles;index as i" >{{t}}</option>
               </select>
               <label for="arrive">Arrivée</label> 
-              <input type="date" class="col" name="Arrive" (change)="onModifie()"  id="arrive">
+              <input type="date" class="col"  name="Arrive" min={{cValue}}  #arriver (change)="setDateArrive(arriver)" ngModel>
 
               <label for="depart">Depart</label>
-              <input type="date" class="col" name="départ" id="depart">
+              <input type="date" class="col" name="départ" id="depart" value={{d1}} min={{d1}} (change)="change=true" ngModel #depart>
+              <h3 *ngIf="change==true">
+                {{getnights(arriver.value,depart.value)}} Nuit(s)
 
-              <label for="nbChambre">nombre de chambres</label>
-              <input type="number" class="col" value="1" id="nbChambre">
-
-              <label for="nbChambre">nombre de personnes</label>
-              <input type="number" class="col" value="1" id="nbPersonne">
+              </h3>
+              <label for="">nombre de chambres</label>
+              <select name="nbChambre" #s ngModel (change)="ajoutPers(s)">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+              <div *ngFor="let n of nbChambre;index as i">
+                <label for="">chambre {{i+1}}</label>
+                <select name="nbPersonneParChambre{{i}}" class="form-select" ngModel>
+                    <option value="1">1 Adulte</option>
+                    <option value="2">2 Adultes</option>
+                    <option value="3">3 Adultes</option>
+                    <option value="4">4 Adultes</option>
+                </select>
+              </div>
+              
 
               <div>{{villeSelected}}</div>
-             <input type="button" (click)="onSubmit(textbox.value)" value="Rechercher"/>
+                <button>Rechercher</button>            
             </div>
             </form>
 
@@ -36,7 +52,7 @@
                             </h3>
                         </div>
                         <div class="col-5">
-                            <ng-container *ngFor="let s of counter()">
+                            <ng-container *ngFor="let s of counter(a.etoile)">
                                 <i class="fas fa-star" style="color:#ffcd0a;font-size: 16px; padding: 0px; margin: -2px;"></i>
 
                             </ng-container>

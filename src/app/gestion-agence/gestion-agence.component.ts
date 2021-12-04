@@ -120,7 +120,6 @@ export class GestionAgenceComponent implements OnInit {
       this.ressourcesevice.modifyHotel(this.hotel,this.i)
       .subscribe(data => console.log(data)
       )
-
     }
     
     deleteHotel(){
