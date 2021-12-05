@@ -12,6 +12,7 @@ import { GestionAgenceComponent } from './gestion-agence/gestion-agence.componen
 import { PageAdminComponent } from './page-admin/page-admin.component';
 import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from "@angular/common/http";
+import { ErrorComponent } from './error/error.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {HttpClientModule} from "@angular/common/http";
     CroisiereComponent,
     OmraComponent,
     GestionAgenceComponent,
-    PageAdminComponent
+    PageAdminComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
