@@ -1,54 +1,56 @@
-<div>
+<div class="container form-group" >
     <!-- Ajout d un hotel -->
     <form #f="ngForm" (ngSubmit)="onSubmit(f)">
         <label for="">Nom Hotel</label>
-    <input type="text" placeholder="Nom de l'hotel" name='name'ngModel><br>
+    <input type="text" class="form-control" required placeholder="Nom de l'hotel" name='name'ngModel><br>
     <label for="">Emplassement de l'image</label>
-    <input type="text" name='image' ngModel><br>
+    <input type="text" class="form-control" name='image' required ngModel><br>
     <label for="">La ville</label>
-    <select name="ville" id="" ngModel>
+    <select name="ville" id="" ngModel required >
         <option *ngFor="let t of lesvilles;index as i" >{{t}}</option>
     </select><br>
     <label for="">Presisez la categorie</label>
-    <input type="text"name="categorie" ngModel><br>
+    <input type="text" class="form-control" required name="categorie" ngModel><br>
     <label for="">avis</label>
-    <input type="text"name="avis" ngModel><br>
+    <input type="text"name="avis" class="form-control" required ngModel><br>
     <label for="">Note</label>
-    <input type="number"name="rate" ngModel><br>
+    <input type="number"name="rate" class="form-control" required ngModel><br>
     <label for="">Etoile</label>
-    <input type="number"name="etoile" ngModel><br>
-    <form #f1="ngForm" (ngSubmit)="valider1(f1)">
+    <input type="number" name="etoile" class="form-control" required ngModel><br>
+    <label for="">addWeekEnd</label>
+    <input type="number" class="form-control"name="addWeekEnd"  required ngModel><br>
+    <form #f1="ngForm"   (ngSubmit)="valider1(f1)">
         <!-- prix des chambres -->
     <h3>Prix des chambres</h3>
     <label >Single</label>
-    <input type="number"name="single" ngModel><br>
+    <input type="number" class="form-control" name="single" ngModel><br>
     <label for="">chambre double</label>
-    <input type="number"name="double" ngModel><br>
+    <input type="number" class="form-control" name="double" ngModel><br>
     <label for="">chambre triple</label>
-    <input type="number"name="triple" ngModel><br>
+    <input type="number" class="form-control" name="triple" ngModel><br>
     <label for="">chambre quadruple</label>
-    <input type="number"name="quadruple" ngModel><br>
-    <button>valider prix des chambres</button>
+    <input type="number" class="form-control" name="quadruple" ngModel><br>
+    <button class="btn btn-success" [disabled]="f.invalid" >valider prix des chambres</button>
     </form>
     <form #f2="ngForm" (ngSubmit)="valider2(f2)">
         <!-- prix des catering -->
         <h3>Prix des catering</h3>
         <label >petitDej</label>
-        <input type="number"name="petitDej" ngModel><br>
+        <input type="number" class="form-control" required name="petitDej" ngModel><br>
         <label for="">demiPensin </label>
-        <input type="number"name="demiPension" ngModel><br>
+        <input type="number" class="form-control" required name="demiPension" ngModel><br>
         <label for="">pensionComplete</label>
-        <input type="number"name="pensionComplete" ngModel><br>
+        <input type="number" class="form-control" required name="pensionComplete" ngModel><br>
         <label for="">allIn</label>
-        <input type="number"name="allIn" ngModel><br>
-        <button>valider prix catering</button>
+        <input type="number" class="form-control" required name="allIn" ngModel><br>
+        <button class="btn btn-success" [disabled]="f2.invalid" >valider prix catering</button>
         </form>
         
-    <button>Ajouter hotel</button>
+    <button class="btn btn-info" [disabled]="f2.invalid && f.invalid " >Ajouter hotel</button>
     </form>
     <!-- modifier un hotel -->
 </div>
-<button (click)="modifier()" >Modifier hotel existant</button>
+<button (click)="modifier()" class="btn btn-dark" >Modifier hotel existant</button>
 <div *ngIf='modif==true'>
     <label for="">Entrer l'emplacement de l'hotel</label>
     <select name="ville" (change)="onSelectedE()" [(ngModel)]="ville">
@@ -64,7 +66,7 @@
 </div>
 
 <div *ngIf='selectH==true'>
-    <form [formGroup]="productForm" (ngSubmit)="onChange()">
+    <form [formGroup]="productForm" class="form-control" (ngSubmit)="onChange()">
         <label for="">Nom hotel</label>
         <input type="text" name='name'formControlName="name"><br>
         <label for="">Emplassement de l'image</label>
@@ -81,7 +83,7 @@
         <input type="number"name="rate" formControlName="rate"><br>
         <label for="">Etoile</label>
         <input type="number"name="etoile" formControlName="etoile"><br>
-        <form [formGroup]="productForm1">
+        <form class="form-control" [formGroup]= "productForm1"> 
             <h3>Prix des chambres</h3>
             <label >Single</label>
             <input type="number"name="single" formControlName="single"><br>
@@ -93,8 +95,8 @@
             <input type="number"name="quadruple" formControlName="quadruple"><br>
             <button>valider prix des chambres</button>
         </form>
-        <form [formGroup]="productForm2">
-            <h3>Prix des chambres</h3>
+        <form class="form-control" [formGroup]="productForm2">
+            <h3>Prix des Catering</h3>
             <label >Single</label>
             <input type="number"name="petitDej" formControlName="petitDej"><br>
             <label for="">chambre double</label>
@@ -106,10 +108,10 @@
             <button>valider prix des chambres</button>
         </form>
     
-    <button>modifier hotel</button>
+    <button  >modifier hotel</button>
     </form>
 </div>
-<button (click)="toDelete=true">hotel à supprimer</button>
+<button (click)="toDelete=true" class="btn btn-dark" >hotel à supprimer</button>
 <div *ngIf='toDelete==true'>
     <select name="hotelDelete" [(ngModel)]="hotelDel" (change)="supp=true">
         <option selected value="">select hotel</option>

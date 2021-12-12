@@ -54,7 +54,7 @@ export class PageAdminComponent implements OnInit {
   
   onAjout(){
     this.ressourseservice.addLogin(this.prodForm.value)
- .subscribe (data => console.log(data));
+ .subscribe (data => console.log(data)); 
   }
 
 }

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CroisiereComponent } from './croisiere/croisiere.component';
 import { ErrorComponent } from './error/error.component';
 import { GestionAgenceComponent } from './gestion-agence/gestion-agence.component';
+import { HotelInfoComponent } from './hotel-info/hotel-info.component';
 import { HoteltnComponent } from './hoteltn/hoteltn.component';
 import { OmraComponent } from './omra/omra.component';
 import { PageAdminComponent } from './page-admin/page-admin.component';
@@ -15,8 +16,9 @@ const routes: Routes = [
   {path:'omra' , component:OmraComponent},
   {path:'gestion',component:GestionAgenceComponent},
   {path:'Admin' , component:PageAdminComponent},
-  {path:'**' , component:ErrorComponent},
-  {path:'', redirectTo:'hotel', pathMatch:'full'}
+  {path:'', redirectTo:'hotel', pathMatch:'full'},
+  {path:'hotel/:a.id/:prix/:arr/:dep' , component:HotelInfoComponent},
+  {path:'**' , component:ErrorComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

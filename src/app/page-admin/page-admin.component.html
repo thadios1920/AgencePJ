@@ -10,10 +10,10 @@
                 <label for="Email">
                     Email
                 </label>
-            </div>
+            </div> 
             <div class="formul" >
                 <input type="password" name="pass"  [(ngModel)]="pass" formControlName="pass"  required/>
-                <div *ngIf=" refpass && refpass.invalid &&  refpass.touched && refpass.dirty " class="alert alert-danger">
+            <div *ngIf=" refpass && refpass.invalid &&  refpass.touched && refpass.dirty " class="alert alert-danger">
                     Veuillez entrer un mot de passe
             </div>
                 <label for=""> Mot de passe</label>

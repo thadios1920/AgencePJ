@@ -10,11 +10,12 @@ export class HotelClass {
         public image?:string,
         public ville?:string,
         public categorie?:string,
-        public avis?:string,
+        public avis?: string ,
         public rate?:number, 
         public etoile?:number,
         public pricesRoom?:PricesRoom,
         public pricesCatering?:PricesCatering,
+        public addWeekEnd?:number, 
         public id?:number
     ){
 

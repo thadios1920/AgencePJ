@@ -3,8 +3,10 @@ import { HotelClass } from './hotel-class';
 import { Login } from './login';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Client } from './client';
 const URL = 'http://localhost:3000/listHotel';
 const URL1 = 'http://localhost:3000/Login' ;
+const URL2 = 'http://localhost:3000/Client';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +17,7 @@ export class RessourceService {
     return this.listeville;
   }
   leshotelsSearched:HotelClass[]=[];
-
+ 
   listHotel:HotelClass [] = [ 
     new HotelClass('radisson blue','',this.listeville[2],"luxe","tres bien",9,5 ), 
     new HotelClass('Africa jade','../../assets/africajade2.jpg', this.listeville[1],"luxe","tres bien",8.7,4 ), 
@@ -61,7 +63,14 @@ export class RessourceService {
     this.listHotel[index]=hotel;
     return this.listHotel[index];
   }
-
+  addClient(c:Client):Observable<Client>{
+    return this.http.post<Client>(URL2, c);
+    } 
+    getClient():Observable<Client[]>{
+    
+    return this.http.get<Client[]>(URL2);
+      }
+   
   getHotels():Observable<HotelClass[]>{
     
     return this.http.get<HotelClass[]>(URL);

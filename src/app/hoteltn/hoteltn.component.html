@@ -3,21 +3,21 @@
     <div>
         <form #f="ngForm" (ngSubmit)="onSubmit(f)" class=" container">
             <div class="row mb-3 " >
-            <select #textbox ngModel class="form-select form-select-sm" name="v" aria-label="Default select example" class="col-md-">
+            <select #textbox ngModel class="form-select form-select-sm" name="v" required aria-label="Default select example" class="col-md-">
                 <option selected>ou allez vous</option>
                 <option *ngFor="let t of lesvilles;index as i" >{{t}}</option>
               </select>
               <label for="arrive">Arrivée</label> 
-              <input type="date" class="col"  name="Arrive" min={{cValue}}  #arriver (change)="setDateArrive(arriver)" ngModel>
+              <input type="date" required class="col"  name="Arrive" min={{cValue}}  #arriver (change)="setDateArrive(arriver)" ngModel>
 
               <label for="depart">Depart</label>
-              <input type="date" class="col" name="départ" id="depart" value={{d1}} min={{d1}} (change)="change=true" ngModel #depart>
+              <input type="date" required class="col" name="départ" id="depart" value={{d1}} min={{d1}} (change)="change=true" ngModel #depart>
               <h3 *ngIf="change==true">
                 {{getnights(arriver.value,depart.value)}} Nuit(s)
 
               </h3>
               <label for="">nombre de chambres</label>
-              <select name="nbChambre" #s ngModel (change)="ajoutPers(s)">
+              <select required name="nbChambre" #s ngModel (change)="ajoutPers(s)">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -26,7 +26,7 @@
               </select>
               <div *ngFor="let n of nbChambre;index as i">
                 <label for="">chambre {{i+1}}</label>
-                <select name="nbPersonneParChambre{{i}}" class="form-select" ngModel>
+                <select required name="nbPersonneParChambre{{i}}"  class="form-select" ngModel>
                     <option value="1">1 Adulte</option>
                     <option value="2">2 Adultes</option>
                     <option value="3">3 Adultes</option>
@@ -36,7 +36,7 @@
               
 
               <div>{{villeSelected}}</div>
-                <button>Rechercher</button>            
+                <button [disabled] ="f.invalid" >Rechercher</button>            
             </div>
             </form>
 
@@ -64,20 +64,40 @@
                            <div class="col-1">
 
                             <span class="badge bg-success">{{a.rate}}</span>
+                            
                            </div>
+                           
                        </div>
                        <div>
-                        <input class="btn btn-primary col-3" type="submit" value="Voir plus ">
+                            <button class="btn" #p (click)="calcul(p,a)">petitDej</button><button #d (click)="calcul(d,a)">demiPension</button><button #pc (click)="calcul(pc,a)">pensionComplete</button><button #all (click)="calcul(all,a)">allIn</button>
+                       </div> 
+                       
+                       <div *ngFor="let nb of nbChambre;index as i">
+                           <b>chambre {{i+1}}</b><br>
+                           <p *ngIf="0==i">{{getTypeChambre(f.value.nbPersonneParChambre0)}}    <span class="text-success">disponible</span></p>
+                           <p *ngIf="1==i">{{getTypeChambre(f.value.nbPersonneParChambre1)}}    <span class="text-success">disponible</span></p>   
+                           <p *ngIf="2==i">{{getTypeChambre(f.value.nbPersonneParChambre2)}}    <span class="text-success">disponible</span></p>   
+                           <p *ngIf="3==i">{{getTypeChambre(f.value.nbPersonneParChambre3)}}    <span class="text-success">disponible</span></p>   
+                           <p *ngIf="4==i">{{getTypeChambre(f.value.nbPersonneParChambre4)}}    <span class="text-success">disponible</span></p>   
+
+                       </div>
+                       <div>
+                           {{afficherPrix()}} 
+                       </div>
+                       <div>
+                           <a [routerLink]="['/hotel',a.id,prix,arr,dep]" ><input class="btn btn-primary col-3" [disabled]="f.invalid" type="submit" value="Voir plus "></a>
                        </div>
                       
                       
-                 </li>
+                 </li> 
                 </ul>
-
+ 
      
     </div>
 </div> <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-<div class="mt-5 p-4 bg-dark text-white text-center c2">
-    <p><i class="fa fa-copyright" aria-hidden="true">2021/2022</i></p>
-    <a class="nav-link" routerLink="/Admin" >S'authentifier en tant que admin</a>
-  </div>
+<footer>
+    <div class="mt-5 p-4 bg-dark text-white text-center c2">
+        <p><i class="fa fa-copyright" aria-hidden="true">2021/2022</i></p>
+        <a class="nav-link" routerLink="/Admin" >S'authentifier en tant que admin</a>
+      </div>
+</footer>

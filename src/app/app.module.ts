@@ -13,6 +13,7 @@ import { PageAdminComponent } from './page-admin/page-admin.component';
 import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from "@angular/common/http";
 import { ErrorComponent } from './error/error.component';
+import { HotelInfoComponent } from './hotel-info/hotel-info.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ErrorComponent } from './error/error.component';
     OmraComponent,
     GestionAgenceComponent,
     PageAdminComponent,
-    ErrorComponent
+    ErrorComponent,
+    HotelInfoComponent
   ],
   imports: [
     BrowserModule,

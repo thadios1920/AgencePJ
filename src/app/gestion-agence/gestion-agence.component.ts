@@ -41,6 +41,7 @@ export class GestionAgenceComponent implements OnInit {
     avis : new FormControl(''),
     rate: new FormControl(),
     etoile : new FormControl(),
+    addWeekEnd:new FormControl(),
   });
   productForm1:FormGroup=new FormGroup({
     single:new FormControl(),
@@ -82,6 +83,8 @@ export class GestionAgenceComponent implements OnInit {
     this.modif=true;}
     onSelectedE(){
       this.selectE=true;
+      console.log("waaa");
+      
       console.log(this.ville);
       this.leshotelsSearched=this.ressourcesevice.initializeHotelsSearched();
      
@@ -101,7 +104,6 @@ export class GestionAgenceComponent implements OnInit {
       this.selectH=true;
       console.log(this.chaine);
         this.hotelSelected=this.leshotels.find(x=>x.name==this.chaine) as HotelClass;
-        console.log('i am here');
         this.i=this.hotelSelected.id;
         console.log(this.hotelSelected);
         this.ngOnInit();
@@ -113,6 +115,8 @@ export class GestionAgenceComponent implements OnInit {
     onChange(){
       this.hotel=this.productForm.value;
       console.log('--------changed---------');
+      this.hotel.ville=this.hotelSelected.ville;
+
       this.hotel.pricesRoom=this.productForm1.value as PricesRoom;
       this.hotel.pricesCatering=this.productForm2.value as PricesCatering;
       console.log(this.hotel);
@@ -143,7 +147,10 @@ export class GestionAgenceComponent implements OnInit {
     
     this.productForm.get('name')?.setValue(this.hotelSelected.name);
     this.productForm.get('image')?.setValue(this.hotelSelected.image);
+    
     this.productForm.get('ville')?.setValue(this.hotelSelected.ville);
+    
+
     this.productForm.get('categorie')?.setValue(this.hotelSelected.categorie);
     this.productForm.get('avis')?.setValue(this.hotelSelected.avis);
     this.productForm.get('rate')?.setValue(this.hotelSelected.rate);
