@@ -155,6 +155,8 @@ export class GestionAgenceComponent implements OnInit {
     this.productForm.get('avis')?.setValue(this.hotelSelected.avis);
     this.productForm.get('rate')?.setValue(this.hotelSelected.rate);
     this.productForm.get('etoile')?.setValue(this.hotelSelected.etoile);
+    this.productForm.get('addWeekEnd')?.setValue(this.hotelSelected.addWeekEnd);
+
     this.productForm1.get('single')?.setValue(this.hotelSelected.pricesRoom?.single);
     this.productForm1.get('double')?.setValue(this.hotelSelected.pricesRoom?.double);
     this.productForm1.get('triple')?.setValue(this.hotelSelected.pricesRoom?.triple);

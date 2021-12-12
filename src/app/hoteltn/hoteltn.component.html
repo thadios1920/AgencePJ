@@ -21,7 +21,7 @@
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
-                <option value="4">4</option>
+                <option value="4">4</option> 
                 <option value="5">5</option>
               </select>
               <div *ngFor="let n of nbChambre;index as i">
@@ -69,7 +69,7 @@
                            
                        </div>
                        <div>
-                            <button class="btn" #p (click)="calcul(p,a)">petitDej</button><button #d (click)="calcul(d,a)">demiPension</button><button #pc (click)="calcul(pc,a)">pensionComplete</button><button #all (click)="calcul(all,a)">allIn</button>
+                            <button class="btn" #p (click)="bool1=false;bool2=true;bool3=true;bool4=true;">petitDej</button><button #d (click)="bool1=true;bool2=false;bool3=true;bool4=true;">demiPension</button><button #pc (click)="bool1=true;bool2=true;bool3=false;bool4=true;">pensionComplete</button><button #all (click)="bool1=true;bool2=true;bool3=true;bool4=false;">allIn</button>
                        </div> 
                        
                        <div *ngFor="let nb of nbChambre;index as i">
@@ -82,7 +82,19 @@
 
                        </div>
                        <div>
-                           {{afficherPrix()}} 
+                           <div *ngIf="!bool1">{{calcul(p,a)}}DT<br/> 
+                               {{nbNuits}}Nuit(s) en Petit dejeun
+                           </div>
+                           <div *ngIf="!bool2">{{calcul(d,a)}}DT<br/> 
+                            {{nbNuits}}Nuit(s) en DemiPension</div>
+                           <div *ngIf="!bool3">{{calcul(pc,a)}}DT
+                            <br/> 
+                            {{nbNuits}}Nuit(s) en Pension complete
+                           </div>
+                           <div *ngIf="!bool4">{{calcul(all,a)}}DT<br/> 
+                            {{nbNuits}}Nuit(s) en allIN</div>
+
+
                        </div>
                        <div>
                            <a [routerLink]="['/hotel',a.id,prix,arr,dep]" ><input class="btn btn-primary col-3" [disabled]="f.invalid" type="submit" value="Voir plus "></a>
@@ -92,7 +104,7 @@
                  </li> 
                 </ul>
  
-     
+                
     </div>
 </div> <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <footer>
