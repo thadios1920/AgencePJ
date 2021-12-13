@@ -25,7 +25,7 @@ export class HoteltnComponent implements OnInit {
   nbTypeChambre1: number[] = [0, 0, 0, 0, 0];
   nbPers: number = 0;
   tab: number[] = [];
-  nbChambre: number[] = [];
+  nbChambre: number[] = []; 
   nbNuits: number = 0; 
   j: number = -1;
   cValue: string = '';
@@ -33,6 +33,10 @@ export class HoteltnComponent implements OnInit {
   @Input() etat: boolean = true;
   nbWeekEnd: number = 0;
   prix: number=0;
+  bool1:boolean = false;
+  bool2:boolean = true;
+  bool3:boolean = true;
+  bool4:boolean = true;
 
   counter(i: number | undefined): any[] {
     this.j = this.j + 1;
@@ -143,7 +147,10 @@ export class HoteltnComponent implements OnInit {
     }
 
   }
-  calcul(x: any, h: HotelClass) {
+  
+  calcul(x:any,h:HotelClass){
+    console.log("i am here");
+    
     let y: number = 0;
     this.nbPers = 0;
     this.nbTypeChambre1 = this.nbTypeChambre;
@@ -194,12 +201,16 @@ export class HoteltnComponent implements OnInit {
       }
 
     }
-    this.prix=y
+    
+    console.log(this.prix);
+    
+    return y;
  
 
     return 0;
 
   }
+  
   afficherPrix(){
     return this.prix;
   }

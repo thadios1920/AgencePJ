@@ -1,76 +1,77 @@
+<div [hidden]="finish" class="container">
+  <p>{{des}}</p>
+  <button (click)="getInfo()" >Voir description de l'hotel</button>
+  <h1>Formulaires</h1>
+  
+  <form [formGroup]="clientForm" (ngSubmit)="onAjout()" >
+    <fieldset>
+      <legend>Exemple de formulaire Bootstrap</legend>
+      
+      <div class="form-group"  > 
+       <label for="nom">Entrer votre CIN</label>
+       <input type="number" class="form-control" [(ngModel)]="id"  placeholder="exp : 001400000" required formControlName="id" >
+       <div *ngIf="refid && refid.dirty && refid.invalid && refid.touched" class="alert alert-danger" class="alert alert-danger">
+         L'identifiant est obligatoire
+         </div>
+     </div>
 
-         <div [hidden]="finish" class="container">
-             <h1>Formulaires</h1>
-             <form [formGroup]="clientForm" (ngSubmit)="onAjout()" >
-               <fieldset>
-                 <legend>Exemple de formulaire Bootstrap</legend>
-                 
-                 <div class="form-group"  > 
-                  <label for="nom">Entrer votre CIN</label>
-                  <input type="number" class="form-control" [(ngModel)]="id"  placeholder="exp : 001400000" required formControlName="id" >
-                  <div *ngIf="refid && refid.dirty && refid.invalid && refid.touched" class="alert alert-danger" class="alert alert-danger">
-                    L'identifiant est obligatoire
-                    </div>
-                </div>
+      <div class="form-group">
+        <label for="nom">Entrez votre nom</label>
+        <input type="text" class="form-control" [(ngModel)]="nom" formControlName="nom" required  placeholder="MOHAMED SALAH">
+        <div *ngIf="refnom && refnom.dirty && refnom.invalid && refnom.touched" class="alert alert-danger">
+         Le Nom est obligatoire
+         </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Entrez votre mail</label>
+        <input type="email" class="form-control"  [(ngModel)]="mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" formControlName="mail" required placeholder="mohamed.salah@contact.com">
+        <div *ngIf="refmail && refmail.invalid && refmail.touched" class="alert alert-danger">
+         Le format de l'email est incorrecte
+         </div> 
+      </div> 
 
-                 <div class="form-group">
-                   <label for="nom">Entrez votre nom</label>
-                   <input type="text" class="form-control" [(ngModel)]="nom" formControlName="nom" required  placeholder="MOHAMED SALAH">
-                   <div *ngIf="refnom && refnom.dirty && refnom.invalid && refnom.touched" class="alert alert-danger">
-                    Le Nom est obligatoire
-                    </div>
-                 </div>
-                 
-                 <div class="form-group">
-                   <label for="email">Entrez votre mail</label>
-                   <input type="email" class="form-control"  [(ngModel)]="mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" formControlName="mail" required placeholder="mohamed.salah@contact.com">
-                   <div *ngIf="refmail && refmail.invalid && refmail.touched" class="alert alert-danger">
-                    Le format de l'email est incorrecte
-                    </div> 
-                 </div> 
+      <div class="form-group">
+       <label for="tel">Entrez votre numero de Telephone</label>
+       <input type="tel" class="form-control" [(ngModel)]="tel" formControlName="tel" required  placeholder="exp : 99 999 999">
+       <div *ngIf="reftel && reftel.invalid && reftel.touched" class="alert alert-danger">
+         Numero de telephone obligatoire
+         </div> 
+     </div>
+
+     <div class="form-group">
+       <label for="tel">Entrer votre region</label>
+       <input type="text" class="form-control" [(ngModel)]="local" formControlName="local"  required placeholder="exp : Tunis">
+       <div *ngIf="refreg && refreg.invalid && refreg.touched" class="alert alert-danger">
+         Emplacement obligatoire 
+         </div> 
+     </div>
+        
+      <div class="form-group">
+        <label for="bio">Commentaire</label>
+        <textarea class="form-control" id="bio" rows="3"></textarea>
+      </div>
+      <button type="submit" [disabled]="clientForm.invalid" (click)="finish=true"class="btn btn-success">Valider Reservation</button>
+    </fieldset>
+  </form>
  
-                 <div class="form-group">
-                  <label for="tel">Entrez votre numero de Telephone</label>
-                  <input type="tel" class="form-control" [(ngModel)]="tel" formControlName="tel" required  placeholder="exp : 99 999 999">
-                  <div *ngIf="reftel && reftel.invalid && reftel.touched" class="alert alert-danger">
-                    Numero de telephone obligatoire
-                    </div> 
-                </div>
+  <!-- recuperer {{soum}} -->
+</div>
+<div>
 
-                <div class="form-group">
-                  <label for="tel">Entrer votre region</label>
-                  <input type="text" class="form-control" [(ngModel)]="local" formControlName="local"  required placeholder="exp : Tunis">
-                  <div *ngIf="refreg && refreg.invalid && refreg.touched" class="alert alert-danger">
-                    Emplacement obligatoire 
-                    </div> 
-                </div>
-                   
-                 <div class="form-group">
-                   <label for="bio">Commentaire</label>
-                   <textarea class="form-control" id="bio" rows="3"></textarea>
-                 </div>
-                 <button type="submit" [disabled]="clientForm.invalid" (click)="getInfo()" class="btn btn-success">Valider Reservation</button>
-               </fieldset>
-             </form>
-            
-             <!-- recuperer {{soum}} -->
-         </div>
-         <div>
-
-         </div>
-         <div>
-          <div [hidden]="!finish" >
-            <div class="alert alert-success" role="alert">
-              <h4 class="alert-heading">Reservation reussite!</h4>
-              <p>En espere que vous aurez une bonne sejour chez nous.</p>
-              <hr>
-              <p class="mb-0">Merci {{nom}} vous d'avoir utiliser notre service .</p>
-              <p>  {{des}} <br/> Montant  Paiee {{p}} <br/> Vous étes demandés déetre present a cette date  {{arrive}} <br/>
-                Votre cijour se terminea cette date {{depart}} <br/> </p>
-            </div>
-            
-            
-            
-          </div>
-         </div>
-    
+</div>
+<div>
+<div *ngIf="finish" >
+ <div class="alert alert-success" role="alert">
+   <h4 class="alert-heading">Réservation réussite!</h4>
+   <p>En espere que vous aurez une bonne sejour chez nous.</p>
+   <hr>
+   <p class="mb-0">Merci {{nom}} vous d'avoir utiliser notre service .</p>
+   <p>  {{des}} <br/> Montant  Paiee {{p}} <br/> Vous étes demandés déetre present a cette date  {{arrive}} <br/>
+     Votre cijour se terminea cette date {{depart}} <br/> </p>
+ </div>
+ 
+ 
+ 
+</div>
+</div>

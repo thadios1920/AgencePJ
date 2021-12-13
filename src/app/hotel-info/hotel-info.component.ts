@@ -56,14 +56,14 @@ export class HotelInfoComponent implements OnInit {
  
   des : string | undefined ;
   getInfo(){
-    console.log(this.leshotels);
+    
     
     for (let index = 0; index < this.leshotels.length; index++) {
       
       
       if(this.leshotels[index].id == this.hot  ){
         this.des = this.leshotels[index].avis;
-        console.log(this.leshotels[index].avis);
+        console.log(`trah${this.leshotels[index].avis}`);
         
         this.i=index;
         break;
@@ -74,7 +74,6 @@ export class HotelInfoComponent implements OnInit {
     }
     
     
-    this.finish = true;
   }
   onAjout(){
     this.ressourcesevice.addClient(this.clientForm.value)
@@ -90,6 +89,8 @@ export class HotelInfoComponent implements OnInit {
 
     this.ressourcesevice.getHotels().subscribe((data: HotelClass[]) => this.leshotels = data);
     this.ressourcesevice.getClient().subscribe(data => this.lesclients = data);
+    console.log("des"+this.des);
+    
   }
  
 }

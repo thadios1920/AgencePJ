@@ -46,9 +46,9 @@
         <button class="btn btn-success" [disabled]="f2.invalid" >valider prix catering</button>
         </form>
         
-    <button class="btn btn-info" [disabled]="f2.invalid && f.invalid " >Ajouter hotel</button>
+    <button class="btn btn-info" [disabled]="f2.invalid || f.invalid " >Ajouter hotel</button>
     </form>
-    <!-- modifier un hotel -->
+    <!-- modifier un hotel --> 
 </div>
 <button (click)="modifier()" class="btn btn-dark" >Modifier hotel existant</button>
 <div *ngIf='modif==true'>
@@ -72,18 +72,19 @@
         <label for="">Emplassement de l'image</label>
         <input type="text" name='image' formControlName="image"><br>
         <label for="">La ville</label>
-        <select name="ville" id="" formControlName="ville">
-        <option *ngFor="let t of lesvilles;index as i" >{{t}}</option>
-        </select><br>
+        <input type="text" name="ville" id="" formControlName="ville" readonly="readonly"><br>
         <label for="">Presisez la categorie</label>
         <input type="text"name="categorie" formControlName="categorie"><br>
-         <label for="">avis</label>
+         <label for="">Description</label>
         <input type="text"name="avis" formControlName="avis"><br>
         <label for="">Note</label>
         <input type="number"name="rate" formControlName="rate"><br>
         <label for="">Etoile</label>
         <input type="number"name="etoile" formControlName="etoile"><br>
+        <label for="">addWeekEnd</label>
+        <input type="number"name="addWeekEnd" formControlName="addWeekEnd"><br>
         <form class="form-control" [formGroup]= "productForm1"> 
+
             <h3>Prix des chambres</h3>
             <label >Single</label>
             <input type="number"name="single" formControlName="single"><br>
