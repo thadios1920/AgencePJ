@@ -1,11 +1,11 @@
 <div [hidden]="finish" class="container">
   <p>{{des}}</p>
   <button (click)="getInfo()" >Voir description de l'hotel</button>
-  <h1>Formulaires</h1>
+  <h1>Entrer vos informations</h1>
   
   <form [formGroup]="clientForm" (ngSubmit)="onAjout()" >
     <fieldset>
-      <legend>Exemple de formulaire Bootstrap</legend>
+      <legend>Entrer des informations valides</legend>
       
       <div class="form-group"  > 
        <label for="nom">Entrer votre CIN</label>
