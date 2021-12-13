@@ -201,10 +201,15 @@ export class HoteltnComponent implements OnInit {
       }
 
     }
+<<<<<<< HEAD
     
     console.log(this.prix);
     
     return y;
+=======
+    return y;
+    this.prix=y
+>>>>>>> ec237b49b9dfd8a6163f38a58458910783d66a22
  
 
     return 0;

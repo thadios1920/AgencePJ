@@ -80,6 +80,7 @@ export class HotelInfoComponent implements OnInit {
     .subscribe (data => console.log(data));
     this.cin = this.clientForm.value.get('id');
     this.nom = this.clientForm.value('nom');
+    this.finish = true;
   }
   ngOnInit(): void {
     this.hot = this.activatedRoute.snapshot.params['a.id'];
